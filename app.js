@@ -11,14 +11,16 @@ function selectImg(img){
 
 function checkSelectedImages(selectedImages){
    let imagesHaveBikeImage = []
+   let incorrectImages = 0
    selectedImages.forEach(imgId => {
     const img = document.getElementById(imgId)
         if (img.classList.contains('bike-img')) {
-        imagesHaveBikeImage.push(imgId)
-        return
-        } 
+            imagesHaveBikeImage.push(imgId)
+        } else {
+            incorrectImages++
+        }
     })
-    if(imagesHaveBikeImage.length === 4){
+    if(imagesHaveBikeImage.length === 4 && incorrectImages === 0){
         window.location.href = "https://www.google.com";
 
     } else {
